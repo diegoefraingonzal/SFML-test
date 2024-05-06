@@ -1,11 +1,11 @@
 #include <SFML/Graphics.hpp>
+#include "Grid.hpp"
 using namespace sf;
+
 int main()
 {
     RenderWindow window(VideoMode(200, 200), "SFML works!");
-    CircleShape shape(100.f);
-    shape.setFillColor(Color::Green);
-
+    Grid grid(5,5);
     while (window.isOpen())
     {
         Event event;
@@ -16,7 +16,7 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
+        grid.drawTo(window);
         window.display();
     }
 
