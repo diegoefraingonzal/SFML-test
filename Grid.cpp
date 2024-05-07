@@ -75,7 +75,7 @@ void Grid::click(int x, int y)
         tablero[indeX][indexY] = 0;
     }
 }
- 
+
 void Grid::update()
 {
     for (int i = 0; i < rows; i++)
@@ -83,20 +83,24 @@ void Grid::update()
         for (int j = 0; j < this->cols; j++)
         {
 
-int vecinos = this->vecinos(i,j);
+            int vecinos = this->vecinos(i, j);
 
-if (this -> tablero [i][j] == 0 && vecinos == 3 ) {
-    this->next[i][j] = 1;
-}
-if (this -> tablero [i][j] == 1 && vecinos > 3 ) {
-    this->next[i][j] = 0;
-}
-if (this -> tablero [i][j] == 1 && vecinos < 3 ) {
-    this->next[i][j] = 1;
-}
-if (this -> tablero [i][j] == 1 && vecinos == 1 || vecinos < 1 ) {
-    this->next[i][j] = 0;
-}
+            if (this->tablero[i][j] == 0 && vecinos == 3)
+            {
+                this->next[i][j] = 1;
+            }
+            if (this->tablero[i][j] == 1 && vecinos > 3)
+            {
+                this->next[i][j] = 0;
+            }
+            if (this->tablero[i][j] == 1 && vecinos < 3)
+            {
+                this->next[i][j] = 1;
+            }
+            if (this->tablero[i][j] == 1 && (vecinos == 1 || vecinos < 1))
+            {
+                this->next[i][j] = 0;
+            }
 
             /*if (this->tablero[i][j] == 1)
             {
@@ -125,7 +129,7 @@ if (this -> tablero [i][j] == 1 && vecinos == 1 || vecinos < 1 ) {
 
 int Grid ::vecinos(int i, int j)
 {
-    
+
     int numero = 0;
     if (this->tablero[i][j + 1] == 1)
     {
